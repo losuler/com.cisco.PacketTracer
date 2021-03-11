@@ -1,0 +1,38 @@
+app-id: com.cisco.PacketTracer
+runtime: org.freedesktop.Platform
+runtime-version: '20.08'
+sdk: org.freedesktop.Sdk
+command: /app/pt/packettracer
+finish-args:
+  - --share=ipc
+  - --share=network
+  - --socket=x11
+  - --socket=pulseaudio
+  - --device=dri
+  - --filesystem=xdg-download
+  - --persist=.
+
+modules:
+  - name: packettracer
+    buildsystem: simple
+    build-commands:
+      - install -D com.cisco.PacketTracer.appdata.xml /app/share/metainfo/com.cisco.PacketTracer.appdata.xml
+      - ar x PacketTracer_800_amd64_build212_final.deb
+      - xz -d data.tar.xz
+      - tar -xf data.tar
+      - find opt/pt/saves -type d -exec chmod 755 {} +
+      - find opt/pt/saves -type f -exec chmod 644 {} +
+      - mv opt/pt /app
+      - install -D /app/pt/art/app.png /app/share/icons/hicolor/48x48/apps/com.cisco.PacketTracer.png
+      - install -D com.cisco.PacketTracer.desktop /app/share/applications/com.cisco.PacketTracer.desktop
+      - sed -i -e 's\/opt/\/app/\g' /app/pt/packettracer /app/pt/linguist
+      - sed -i -e 's\"$@"\-style windows "$@"\;' /app/pt/packettracer /app/pt/linguist
+
+    sources:
+      - type: file
+        path: PacketTracer_800_amd64_build212_final.deb
+        sha256: c9a78f9d1ee63fa421d3c531e9e1c209e425ba84d78c8e606594e4e59df535c9
+      - type: file
+        path: com.cisco.PacketTracer.appdata.xml
+      - type: file
+        path: com.cisco.PacketTracer.desktop

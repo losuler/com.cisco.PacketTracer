@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+
+Exec=/app/pt/packettracer %F
+Icon=com.cisco.PacketTracer
+
+Name=Packet Tracer
+Categories=Application;Network;
+
+MimeType=application/x-pkt;application/x-pka;application/x-pkz;
+StartupWMClass=PacketTracer

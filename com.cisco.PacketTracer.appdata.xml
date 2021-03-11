@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>com.cisco.PacketTracer</id>
+
+  <name>Packet Tracer</name>
+  <summary>Powerful network simulation tool built by Cisco</summary>
+
+  <metadata_license>MIT</metadata_license>
+  <project_license>
+        LicenseRef-proprietary=https://www.cisco.com/c/dam/en_us/about/doing_business/legal/seula/cisco-packet-tracer-software.pdf
+  </project_license>
+
+  <description>
+    <p>
+      Get real world experience with this powerful network simulation tool built by Cisco. Practice building simple and complex networks across a variety of devices and extend beyond routers and switches. Create solutions that are interconnected for smart cities, homes, and enterprises.
+    </p>
+    <p>
+      Use it alongside instructional courses, professional training, work planning or just to have some fun.
+    </p>
+  </description>
+
+  <launchable type="desktop-id">com.cisco.PacketTracer.desktop</launchable>
+</component>
