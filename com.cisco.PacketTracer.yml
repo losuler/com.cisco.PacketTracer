@@ -18,8 +18,7 @@ modules:
     build-commands:
       - install -D com.cisco.PacketTracer.appdata.xml /app/share/metainfo/com.cisco.PacketTracer.appdata.xml
       - ar x CiscoPacketTracer_801_Ubuntu_64bit.deb
-      - xz -d data.tar.xz
-      - tar -xf data.tar
+      - tar -xzf data.tar
       - find opt/pt/saves -type d -exec chmod 755 {} +
       - find opt/pt/saves -type f -exec chmod 644 {} +
       - mv opt/pt /app
