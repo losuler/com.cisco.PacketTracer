@@ -23,17 +23,18 @@ This is currently based on Packet Tracer 8.0.1 and is intended to track the late
     git clone https://github.com/losuler/com.cisco.PacketTracer
     ```
 
-2. Install build depenendcies.
+2. Install build dependencies (using your preferred package manager).
 
-    ```
-    flatpak-builder
+    ```bash
+    dnf install flatpak-builder
     ```
 
 3. Install Flatpak runtime dependencies.
 
-    ```
-    org.freedesktop.Platform/x86_64/20.08
-    org.freedesktop.Sdk/x86_64/20.08
+    ```bash
+    flatpak install \
+        org.freedesktop.Platform/x86_64/20.08 \
+        org.freedesktop.Sdk/x86_64/20.08
     ```
 
 4. Download the official Deb package.
@@ -43,7 +44,7 @@ This is currently based on Packet Tracer 8.0.1 and is intended to track the late
 5. Build and install the Flatpak.
 
     ```bash
-    make install
+    flatpak-builder --install build com.cisco.PacketTracer.yml
     ```
 
 ## Notes
