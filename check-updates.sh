@@ -6,7 +6,7 @@ set -o errexit
 set -o pipefail
 set -o nounset
 
-PREV_RELEASE="8.0.1"
+PREV_RELEASE="8.1.0"
 
 LATEST_RELEASE=$(curl --silent https://www.netacad.com/courses/packet-tracer/faq | \
     grep --only-matching --perl-regexp "What’s new in Packet Tracer \d\.\d\.\d" | \
