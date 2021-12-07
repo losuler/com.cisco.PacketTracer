@@ -20,8 +20,8 @@ modules:
       - ar x CiscoPacketTracer_810_Ubuntu_64bit.deb
       - xz -d data.tar.xz
       - tar -xf data.tar
-      - find opt/pt/saves -type d -exec chmod 755 {} +
-      - find opt/pt/saves -type f -exec chmod 644 {} +
+      - find opt/pt/saves opt/pt/templates opt/pt/templates/environments -type d -exec chmod 755 {} +
+      - find opt/pt/saves opt/pt/templates opt/pt/templates/environments -type f -exec chmod 644 {} +
       - mv opt/pt /app
       - install -D /app/pt/art/app.png /app/share/icons/hicolor/48x48/apps/com.cisco.PacketTracer.png
       - install -D com.cisco.PacketTracer.desktop /app/share/applications/com.cisco.PacketTracer.desktop
