@@ -13,7 +13,7 @@
 
 This is a Flatpak manifest for [Cisco's Packet Tracer](https://www.netacad.com/courses/packet-tracer). The Deb package in which Cisco distributes their binary build of Packet Tracer is not included as the download link for and use of Packet Tracer itself requires a Netacad account.
 
-This is currently based on Packet Tracer 8.1.0 and is intended to track the latest release. For previous releases see [janymal/PacketTracer7-flatpak](https://github.com/janymal/PacketTracer7-flatpak) and [rpallai/flatpak-pt](https://github.com/rpallai/flatpak-pt).
+This is currently based on Packet Tracer 8.1.1 and is intended to track the latest release. For previous releases see [janymal/PacketTracer7-flatpak](https://github.com/janymal/PacketTracer7-flatpak) and [rpallai/flatpak-pt](https://github.com/rpallai/flatpak-pt).
 
 ## Building
 

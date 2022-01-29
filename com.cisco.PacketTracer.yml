@@ -17,7 +17,7 @@ modules:
     buildsystem: simple
     build-commands:
       - install -D com.cisco.PacketTracer.appdata.xml /app/share/metainfo/com.cisco.PacketTracer.appdata.xml
-      - ar x CiscoPacketTracer_810_Ubuntu_64bit.deb
+      - ar x CiscoPacketTracer_811_Ubuntu_64bit.deb
       - xz -d data.tar.xz
       - tar -xf data.tar
       - find opt/pt/saves opt/pt/templates opt/pt/templates/environments -type d -exec chmod 755 {} +
@@ -30,8 +30,8 @@ modules:
 
     sources:
       - type: file
-        path: CiscoPacketTracer_810_Ubuntu_64bit.deb
-        sha256: 7dc810747d330ec33191d198dd399a8ff99bf991a10d27f335475692f2c2bcf8
+        path: CiscoPacketTracer_811_Ubuntu_64bit.deb
+        sha256: 08c53171aa0257a64ae7de1540f242214033cfa4f879fbc9fed5cc0d32232abf
       - type: file
         path: com.cisco.PacketTracer.appdata.xml
       - type: file
