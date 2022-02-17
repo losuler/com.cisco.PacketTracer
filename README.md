@@ -36,6 +36,14 @@ This is currently based on Packet Tracer 8.1.1 and is intended to track the late
         org.freedesktop.Platform/x86_64/20.08 \
         org.freedesktop.Sdk/x86_64/20.08
     ```
+    
+   if you use KDE Plasma can install Flatpak Kde runtime dependencies
+
+    ```bash
+    flatpak install org.kde.Platform/x86_64/5.15-21.08
+    flatpak install org.kde.Sdk/x86_64/5.15-21.08
+    ```
+ 
 
 4. Download the official Deb package.
 
@@ -46,6 +54,11 @@ This is currently based on Packet Tracer 8.1.1 and is intended to track the late
     ```bash
     flatpak-builder --install build com.cisco.PacketTracer.yml
     ```
+  Or 
+  ```bash
+	flatpak-builder --install build com.cisco.PacketTracer.KDE.yml
+  ```
+ In case to use KDE
 
 ## Notes
 

@@ -1,0 +1,38 @@
+app-id: com.cisco.PacketTracer
+runtime: org.kde.Platform
+runtime-version: '5.15-21.08'
+sdk: org.kde.Sdk
+command: /app/pt/packettracer
+finish-args:
+  - --share=ipc
+  - --share=network
+  - --socket=x11
+  - --socket=pulseaudio
+  - --device=dri
+  - --filesystem=xdg-download
+  - --persist=.
+
+modules:
+  - name: packettracer
+    buildsystem: simple
+    build-commands:
+      - install -D com.cisco.PacketTracer.appdata.xml /app/share/metainfo/com.cisco.PacketTracer.appdata.xml
+      - ar x CiscoPacketTracer_811_Ubuntu_64bit.deb
+      - xz -d data.tar.xz
+      - tar -xf data.tar
+      - find opt/pt/saves opt/pt/templates opt/pt/templates/environments -type d -exec chmod 755 {} +
+      - find opt/pt/saves opt/pt/templates opt/pt/templates/environments -type f -exec chmod 644 {} +
+      - mv opt/pt /app
+      - install -D /app/pt/art/app.png /app/share/icons/hicolor/48x48/apps/com.cisco.PacketTracer.png
+      - install -D com.cisco.PacketTracer.desktop /app/share/applications/com.cisco.PacketTracer.desktop
+      - sed -i -e 's\/opt/\/app/\g' /app/pt/packettracer /app/pt/linguist
+      - sed -i -e 's\"$@"\-style windows "$@"\;' /app/pt/packettracer /app/pt/linguist
+
+    sources:
+      - type: file
+        path: CiscoPacketTracer_811_Ubuntu_64bit.deb
+        sha256: 08c53171aa0257a64ae7de1540f242214033cfa4f879fbc9fed5cc0d32232abf
+      - type: file
+        path: com.cisco.PacketTracer.appdata.xml
+      - type: file
+        path: com.cisco.PacketTracer.desktop
