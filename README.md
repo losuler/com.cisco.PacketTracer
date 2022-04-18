@@ -37,13 +37,14 @@ This is currently based on Packet Tracer 8.1.1 and is intended to track the late
         org.freedesktop.Sdk/x86_64/20.08
     ```
 
-4. Download the official Deb package.
+4. Download the official Deb package and copy it to the cloned repository (Do not rename it).
 
     https://www.netacad.com/portal/resources/packet-tracer
 
 5. Build and install the Flatpak.
 
     ```bash
+    cd com.cisco.PacketTracer
     flatpak-builder --install build com.cisco.PacketTracer.yml
     ```
 
