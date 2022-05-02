@@ -1,0 +1,26 @@
+name: Check for updates
+
+on:
+  schedule:
+    # https://crontab.guru/every-day-8am
+    - cron: 0 8 * * *
+
+jobs:
+  pull-request:
+    # https://github.com/actions/virtual-environments
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Run update check
+        run: echo "update_status=$(bash check-updates.sh)" >> $GITHUB_ENV
+
+      - name: Open pull request
+        # https://docs.github.com/en/actions/learn-github-actions/expressions
+        if: contains(env.update_status, ">")
+        uses: repo-sync/pull-request@v2
+        with:
+          destination_branch: "master"
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          pr_title: "Add new release"
+          pr_body: ${{ env.update_status }}
