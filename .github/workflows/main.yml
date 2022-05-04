@@ -25,5 +25,6 @@ jobs:
         with:
           destination_branch: "master"
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          pr_allow_empty: true
           pr_title: "Add new release"
           pr_body: ${{ env.update_status }}
