@@ -20,7 +20,6 @@ jobs:
 
       - name: Update version number
         run: |
-          git checkout -b add-new-release &&
           #sed "s/PREV_RELEASE=.*/PREV_RELEASE=\"$(echo \"${{env.version}}\" | \
           sed "s/PREV_RELEASE=.*/PREV_RELEASE=\"$(echo 8.2 | \
               awk '{print $1}')\"/" \
@@ -30,11 +29,11 @@ jobs:
         # https://docs.github.com/en/actions/learn-github-actions/expressions
         if: contains(env.version, '==')
         #if: contains(steps.update.outputs.STATUS, '==')
-        uses: repo-sync/pull-request@v2
+        uses: peter-evans/create-pull-request@v4
         with:
-          source_branch: "add-new-release"
-          destination_branch: "master"
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          pr_allow_empty: true
-          pr_title: "Add new release"
-          pr_body: "A new release of Packet Tracer has been detected."
+          token: ${{ secrets.GITHUB_TOKEN }}
+          committer: GitHub <noreply@github.com>
+          author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
+          branch: add-new-release
+          title: "Add new release"
+          body: "A new release of Packet Tracer has been detected."
