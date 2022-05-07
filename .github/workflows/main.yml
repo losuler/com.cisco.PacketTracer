@@ -4,6 +4,7 @@ on:
   schedule:
     # https://crontab.guru/every-day-8am
     - cron: 0 8 * * *
+  workflow_dispatch:
 
 jobs:
   pull-request:
