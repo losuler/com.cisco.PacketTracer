@@ -27,7 +27,7 @@ jobs:
 
       - name: Open pull request
         # https://docs.github.com/en/actions/learn-github-actions/expressions
-        if: contains(env.update_status, '==')
+        if: contains(env.version, '==')
         #if: contains(steps.update.outputs.STATUS, '==')
         uses: repo-sync/pull-request@v2
         with:
