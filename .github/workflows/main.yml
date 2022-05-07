@@ -27,4 +27,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           pr_allow_empty: true
           pr_title: "Add new release"
-          pr_body: ${{ env.update_status }}
+          pr_body: ${{ steps.update.outputs.STATUS }}
