@@ -20,6 +20,7 @@ jobs:
 
       - name: Update version number
         run: |
+          git checkout -b add-new-release &&
           #sed "s/PREV_RELEASE=.*/PREV_RELEASE=\"$(echo \"${{env.version}}\" | \
           sed "s/PREV_RELEASE=.*/PREV_RELEASE=\"$(echo 8.2 | \
               awk '{print $1}')\"/" \
@@ -31,6 +32,7 @@ jobs:
         #if: contains(steps.update.outputs.STATUS, '==')
         uses: repo-sync/pull-request@v2
         with:
+          source_branch: "add-new-release"
           destination_branch: "master"
           github_token: ${{ secrets.GITHUB_TOKEN }}
           pr_allow_empty: true
