@@ -38,5 +38,6 @@ jobs:
           committer: GitHub <noreply@github.com>
           author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
           branch: add-new-release
+          base: master
           title: "Add new release"
           body: "A new release of Packet Tracer has been detected."
