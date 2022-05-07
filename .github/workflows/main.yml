@@ -14,18 +14,24 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Run update check
-        #run: echo "update_status=$(bash check-updates.sh)" >> $GITHUB_ENV
-        run: echo "::set-output name=STATUS::$(bash check-updates.sh)"
-        id: update
+        run: echo "version=$(bash check-updates.sh --version_only)" >> $GITHUB_ENV
+        #run: echo "::set-output name=STATUS::$(bash check-updates.sh --version-only)"
+        #id: update
+
+      - name: Update version number
+        run: |
+          sed "s/PREV_RELEASE=.*/PREV_RELEASE=\"$(echo \"${{env.version}}\" | \
+              awk '{print $1}')\"/" \
+              check-updates.sh
 
       - name: Open pull request
         # https://docs.github.com/en/actions/learn-github-actions/expressions
-        #if: contains(env.update_status, 'no new')
-        if: contains(steps.update.outputs.STATUS, 'no new')
+        if: contains(env.update_status, '==')
+        #if: contains(steps.update.outputs.STATUS, '==')
         uses: repo-sync/pull-request@v2
         with:
           destination_branch: "master"
           github_token: ${{ secrets.GITHUB_TOKEN }}
           pr_allow_empty: true
           pr_title: "Add new release"
-          pr_body: ${{ steps.update.outputs.STATUS }}
+          pr_body: "A new release of Packet Tracer has been detected."
