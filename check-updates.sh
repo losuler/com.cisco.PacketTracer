@@ -14,12 +14,27 @@ LATEST_RELEASE=$(curl --silent https://www.netacad.com/courses/packet-tracer/faq
     head -1 | \
     grep --only-matching --perl-regexp "(\d\.\d|\.\d)")
 
-if [[ "${LATEST_RELEASE}" != "${PREV_RELEASE}" ]]; then
-    echo "There's a new release of Packet Tracer."
-    echo "https://www.netacad.com/courses/packet-tracer/faq"
-    echo "${LATEST_RELEASE} > ${PREV_RELEASE}."
-else
-    echo "There's no new release of Packet Tracer."
-    echo "https://www.netacad.com/courses/packet-tracer/faq"
-    echo "${LATEST_RELEASE} == ${PREV_RELEASE}."
-fi
+function print_release {
+    if [[ "${LATEST_RELEASE}" != "${PREV_RELEASE}" ]]; then
+        if [[ "$1" != "version-only" ]]; then
+            echo "There's a new release of Packet Tracer."
+            echo "https://www.netacad.com/courses/packet-tracer/faq"
+        fi
+        echo "${LATEST_RELEASE} > ${PREV_RELEASE}."
+    else
+        if [[ "$1" != "version-only" ]]; then
+            echo "There's no new release of Packet Tracer."
+            echo "https://www.netacad.com/courses/packet-tracer/faq"
+        fi
+        echo "${LATEST_RELEASE} == ${PREV_RELEASE}."
+    fi
+}
+
+case "$@" in
+    --version-only)
+        print_release "version-only"
+        ;;
+    *)
+        print_release ""
+        ;;
+esac
