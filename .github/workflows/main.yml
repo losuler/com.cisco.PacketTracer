@@ -5,6 +5,8 @@ on:
     # https://crontab.guru/every-day-8am
     #- cron: 0 8 * * *
   workflow_dispatch:
+    branches:
+      - add-new-release
 
 jobs:
   pull-request:
@@ -20,6 +22,7 @@ jobs:
 
       - name: Update version number
         run: |
+          git checkout -b add-new-release &&
           #sed "s/PREV_RELEASE=.*/PREV_RELEASE=\"$(echo \"${{env.version}}\" | \
           sed "s/PREV_RELEASE=.*/PREV_RELEASE=\"$(echo 8.2 | \
               awk '{print $1}')\"/" \
