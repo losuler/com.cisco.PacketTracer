@@ -7,7 +7,7 @@ set -o pipefail
 set -o nounset
 
 # The FAQ page says 8.1 but it's actually 8.1.1
-PREV_RELEASE="8.1"
+PREV_RELEASE="8.2"
 
 LATEST_RELEASE=$(curl --silent https://www.netacad.com/courses/packet-tracer/faq | \
     grep --only-matching --perl-regexp "What’s new in Packet Tracer (\d\.\d|\.\d)" | \
