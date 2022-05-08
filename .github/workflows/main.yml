@@ -20,9 +20,11 @@ jobs:
         #run: echo "::set-output name=STATUS::$(bash check-updates.sh --version-only)"
         #id: update
 
+      - name: Create new branch
+        run: git checkout -b add-new-release
+
       - name: Update version number
         run: |
-          git checkout -b add-new-release &&
           #sed "s/PREV_RELEASE=.*/PREV_RELEASE=\"$(echo \"${{env.version}}\" | \
           sed -i "s/PREV_RELEASE=.*/PREV_RELEASE=\"$(echo 8.2 | \
               awk '{print $1}')\"/" \
