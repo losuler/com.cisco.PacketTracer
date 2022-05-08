@@ -24,7 +24,7 @@ jobs:
         run: |
           git checkout -b add-new-release &&
           #sed "s/PREV_RELEASE=.*/PREV_RELEASE=\"$(echo \"${{env.version}}\" | \
-          sed "s/PREV_RELEASE=.*/PREV_RELEASE=\"$(echo 8.2 | \
+          sed -i "s/PREV_RELEASE=.*/PREV_RELEASE=\"$(echo 8.2 | \
               awk '{print $1}')\"/" \
               check-updates.sh
 
