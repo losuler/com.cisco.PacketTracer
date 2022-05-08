@@ -1,9 +1,9 @@
 name: Check for updates
 
 on:
-  #schedule:
+  schedule:
     # https://crontab.guru/every-day-8am
-    #- cron: 0 8 * * *
+    - cron: 0 8 * * *
   workflow_dispatch:
     branches:
       - add-new-release
@@ -17,23 +17,19 @@ jobs:
 
       - name: Run update check
         run: echo "version=$(bash check-updates.sh --version-only)" >> $GITHUB_ENV
-        #run: echo "::set-output name=STATUS::$(bash check-updates.sh --version-only)"
-        #id: update
 
       - name: Create new branch
         run: git branch add-new-release
 
       - name: Update version number
         run: |
-          #sed "s/PREV_RELEASE=.*/PREV_RELEASE=\"$(echo \"${{env.version}}\" | \
-          sed -i "s/PREV_RELEASE=.*/PREV_RELEASE=\"$(echo 8.2 | \
+          sed -i "s/PREV_RELEASE=.*/PREV_RELEASE=\"$(echo \"${{env.version}}\" | \
               awk '{print $1}')\"/" \
               check-updates.sh
 
       - name: Open pull request
         # https://docs.github.com/en/actions/learn-github-actions/expressions
         if: contains(env.version, '==')
-        #if: contains(steps.update.outputs.STATUS, '==')
         uses: peter-evans/create-pull-request@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
