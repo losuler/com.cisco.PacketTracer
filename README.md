@@ -33,8 +33,8 @@ This is currently based on Packet Tracer 8.1.1 and is intended to track the late
 
     ```bash
     flatpak install \
-        org.freedesktop.Platform/x86_64/20.08 \
-        org.freedesktop.Sdk/x86_64/20.08
+        org.freedesktop.Platform/x86_64/21.08 \
+        org.freedesktop.Sdk/x86_64/21.08
     ```
 
 4. Download the official Deb package to the cloned repository (don't rename it).
