@@ -45,7 +45,7 @@ This is currently based on Packet Tracer 8.1.1 and is intended to track the late
 
     ```bash
     cd com.cisco.PacketTracer
-    flatpak-builder --install build com.cisco.PacketTracer.yml
+    flatpak-builder --install --user build com.cisco.PacketTracer.yml
     ```
 
 ## Notes
