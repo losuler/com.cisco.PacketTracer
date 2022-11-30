@@ -10,7 +10,7 @@ set -o nounset
 PREV_RELEASE="8.1"
 
 LATEST_RELEASE=$(curl --silent https://www.netacad.com/courses/packet-tracer/faq | \
-    grep --only-matching --perl-regexp "What’s new in Packet Tracer (\d\.\d|\.\d)" | \
+    grep --only-matching --perl-regexp "What’s new in Cisco Packet Tracer (\d\.\d|\.\d)" | \
     head -1 | \
     grep --only-matching --perl-regexp "(\d\.\d|\.\d)")
 
