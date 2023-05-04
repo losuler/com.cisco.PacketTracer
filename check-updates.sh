@@ -6,7 +6,7 @@ set -o errexit
 set -o pipefail
 set -o nounset
 
-# The FAQ page says 8.1 but it's actually 8.1.1
+# The FAQ page says 8.1 but it's actually 8.2.1
 PREV_RELEASE="8.2"
 
 LATEST_RELEASE=$(curl --silent https://www.netacad.com/courses/packet-tracer/faq | \
