@@ -3,6 +3,11 @@ runtime: org.freedesktop.Platform
 runtime-version: '22.08'
 sdk: org.freedesktop.Sdk
 command: /app/pt/packettracer
+separate-locales: false
+
+tags: 
+    - proprietary
+
 finish-args:
   - --share=ipc
   - --share=network
@@ -11,6 +16,7 @@ finish-args:
   - --device=dri
   - --filesystem=xdg-download
   - --persist=.
+  - --env=TZ=
 
 modules:
   - name: packettracer
