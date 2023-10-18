@@ -1,7 +1,9 @@
 app-id: com.cisco.PacketTracer
-runtime: org.freedesktop.Platform
-runtime-version: '22.08'
-sdk: org.freedesktop.Sdk
+runtime: org.kde.Platform
+runtime-version: '5.15-22.08'
+sdk: org.kde.Sdk
+base: io.qt.qtwebengine.BaseApp
+base-version: '5.15-22.08'
 command: /app/pt/packettracer
 separate-locales: false
 
