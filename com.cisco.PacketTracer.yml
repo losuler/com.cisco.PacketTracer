@@ -33,6 +33,7 @@ modules:
       - mv opt/pt /app
       - install -D /app/pt/art/app.png /app/share/icons/hicolor/48x48/apps/com.cisco.PacketTracer.png
       - install -D com.cisco.PacketTracer.desktop /app/share/applications/com.cisco.PacketTracer.desktop
+      - install -D com.cisco.PacketTracer.url.desktop /app/share/applications/com.cisco.PacketTracer.url.desktop
       - sed -i -e 's\/opt/\/app/\g' /app/pt/packettracer /app/pt/linguist
       - sed -i -e 's\"$@"\-style windows "$@"\;' /app/pt/packettracer /app/pt/linguist
 
@@ -44,3 +45,5 @@ modules:
         path: com.cisco.PacketTracer.appdata.xml
       - type: file
         path: com.cisco.PacketTracer.desktop
+      - type: file
+        path: com.cisco.PacketTracer.url.desktop
