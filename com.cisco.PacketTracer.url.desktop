@@ -2,11 +2,12 @@
 Encoding=UTF-8
 Type=Application
 
-Exec=/app/pt/packettracer %F
+Exec=/app/pt/packettracer -uri=%u
 Icon=com.cisco.PacketTracer
 
 Name=Packet Tracer
 Categories=Application;Network;
+NoDisplay=true
 
-MimeType=application/x-pkt;application/x-pka;application/x-pkz;application/x-pks;application/x-pksz;
+MimeType=x-scheme-handler/pttp;
 StartupWMClass=PacketTracer
