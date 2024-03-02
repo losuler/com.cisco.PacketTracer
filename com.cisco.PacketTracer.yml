@@ -24,6 +24,7 @@ modules:
       - find opt/pt/saves opt/pt/templates opt/pt/templates/environments -type f -exec chmod 644 {} +
       - mv opt/pt /app
       - install -D /app/pt/art/app.png /app/share/icons/hicolor/48x48/apps/com.cisco.PacketTracer.png
+      - install -D com.cisco.PacketTracer.png /app/share/icons/hicolor/128x128/apps/com.cisco.PacketTracer.png
       - install -D com.cisco.PacketTracer.desktop /app/share/applications/com.cisco.PacketTracer.desktop
       - sed -i -e 's\/opt/\/app/\g' /app/pt/packettracer /app/pt/linguist
       - sed -i -e 's\"$@"\-style windows "$@"\;' /app/pt/packettracer /app/pt/linguist
@@ -36,3 +37,5 @@ modules:
         path: com.cisco.PacketTracer.appdata.xml
       - type: file
         path: com.cisco.PacketTracer.desktop
+      - type: file
+        path: com.cisco.PacketTracer.png
