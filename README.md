@@ -39,7 +39,7 @@ This is currently based on Packet Tracer 8.2.1 and is intended to track the late
 
 4. Download the official Deb package to the cloned repository (don't rename it).
 
-    https://www.netacad.com/portal/resources/packet-tracer
+    https://skillsforall.com/resources/lab-downloads
 
 5. Build and install the Flatpak.
 
