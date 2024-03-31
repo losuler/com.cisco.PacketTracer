@@ -25,7 +25,7 @@ modules:
     buildsystem: simple
     build-commands:
       - install -D com.cisco.PacketTracer.appdata.xml /app/share/metainfo/com.cisco.PacketTracer.appdata.xml
-      - ar x Packet_Tracer821_amd64_signed.deb
+      - ar x Packet_Tracer822_amd64_signed.deb
       - xz -d data.tar.xz
       - tar -xf data.tar
       - find opt/pt/saves opt/pt/templates opt/pt/templates/environments -type d -exec chmod 755 {} +
@@ -40,8 +40,8 @@ modules:
 
     sources:
       - type: file
-        path: Packet_Tracer821_amd64_signed.deb
-        sha256: 428338ac32a474d4c9e930433c202cfa5d7b24b9eca50165972f41eb484e07ba
+        path: Packet_Tracer822_amd64_signed.deb
+        sha256: 6cd2b8891df92d2cad8b6fdc47480fc089de085c4f3fe95eb80d5450a2a7f72d
       - type: file
         path: com.cisco.PacketTracer.appdata.xml
       - type: file
