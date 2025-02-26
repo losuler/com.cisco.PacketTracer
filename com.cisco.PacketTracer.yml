@@ -11,14 +11,19 @@ tags:
     - proprietary
 
 finish-args:
-  - --share=ipc
-  - --share=network
+  # - --share=ipc
+  # - --share=network
   - --socket=x11
-  - --socket=pulseaudio
+  # - --socket=pulseaudio
   - --device=dri
-  - --filesystem=xdg-download
+  # - --filesystem=xdg-download
   - --persist=.
   - --env=TZ=
+  - --nofilesystem=xdg-config/kdeglobals
+  - --no-talk-name=com.canonical.AppMenu.Registrar
+  - --no-talk-name=org.kde.kconfig.notify
+  - --no-talk-name=org.kde.kdeconnect
+  - --no-talk-name=org.kde.KGlobalSettings
 
 modules:
   - name: packettracer
