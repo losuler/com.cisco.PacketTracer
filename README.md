@@ -32,6 +32,8 @@ This is currently based on Packet Tracer 8.2.1 and is intended to track the late
 3. Install Flatpak runtime dependencies.
 
     ```bash
+    flatpak-builder --install-deps-from=flathub --install-deps-only build com.cisco.PacketTracer.yml
+    # or
     flatpak install \
         org.kde.Sdk/x86_64/5.15-22.08 \
         io.qt.qtwebengine.BaseApp/x86_64/5.15-22.08

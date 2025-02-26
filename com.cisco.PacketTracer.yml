@@ -1,9 +1,9 @@
 app-id: com.cisco.PacketTracer
 runtime: org.kde.Platform
-runtime-version: '5.15-22.08'
+runtime-version: '6.8'
 sdk: org.kde.Sdk
 base: io.qt.qtwebengine.BaseApp
-base-version: '5.15-22.08'
+base-version: '6.8'
 command: /app/pt/packettracer
 separate-locales: false
 
@@ -11,14 +11,19 @@ tags:
     - proprietary
 
 finish-args:
-  - --share=ipc
-  - --share=network
+  # - --share=ipc
+  # - --share=network
   - --socket=x11
-  - --socket=pulseaudio
+  # - --socket=pulseaudio
   - --device=dri
-  - --filesystem=xdg-download
+  # - --filesystem=xdg-download
   - --persist=.
   - --env=TZ=
+  - --nofilesystem=xdg-config/kdeglobals
+  - --no-talk-name=com.canonical.AppMenu.Registrar
+  - --no-talk-name=org.kde.kconfig.notify
+  - --no-talk-name=org.kde.kdeconnect
+  - --no-talk-name=org.kde.KGlobalSettings
 
 modules:
   - name: packettracer
@@ -35,6 +40,7 @@ modules:
       - install -D com.cisco.PacketTracer.png /app/share/icons/hicolor/128x128/apps/com.cisco.PacketTracer.png
       - install -D com.cisco.PacketTracer.desktop /app/share/applications/com.cisco.PacketTracer.desktop
       - install -D com.cisco.PacketTracer.url.desktop /app/share/applications/com.cisco.PacketTracer.url.desktop
+      - patch /app/pt/packettracer packettracer.patch
       - sed -i -e 's\/opt/\/app/\g' /app/pt/packettracer /app/pt/linguist
       - sed -i -e 's\"$@"\-style windows "$@"\;' /app/pt/packettracer /app/pt/linguist
 
@@ -42,6 +48,8 @@ modules:
       - type: file
         path: Packet_Tracer822_amd64_signed.deb
         sha256: 6cd2b8891df92d2cad8b6fdc47480fc089de085c4f3fe95eb80d5450a2a7f72d
+      - type: file
+        path: packettracer.patch
       - type: file
         path: com.cisco.PacketTracer.appdata.xml
       - type: file
